@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Build docker image
-        run: docker build -t ghcr.io/Alexandro228007/1/node:latest ./node
+        run: docker build -t ghcr.io/alexandro228007/1/node:latest ./node
       
         
       - name: Login to GitHub Container Registry
@@ -37,7 +37,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Push docker image
-        run: docker push ghcr.io/Alexandro228007/1/node:latest
+        run: docker push ghcr.io/alexandro228007/1/node:latest
       - name: send telegram message on push
         if: failure()
         uses: appleboy/telegram-action@master
@@ -61,7 +61,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build docker image
-      run: docker build -t ghcr.io/Alexandro228007/1/pyth:latest ./pyth
+      run: docker build -t ghcr.io/alexandro228007/1/pyth:latest ./pyth
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
@@ -69,7 +69,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
     - name: Push docker image
-      run: docker push ghcr.io/Alexandro228007/1/pyth:latest
+      run: docker push ghcr.io/alexandro228007/1/pyth:latest
     - name: send telegram message on push
       if: failure()
       uses: appleboy/telegram-action@master
